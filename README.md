@@ -1,2 +1,2 @@
-# tedushop
-This is new project for training
+# thongthuishop
+This is new project for training + learning (hoa-nx)
