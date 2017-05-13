@@ -4,6 +4,6 @@ namespace ThongThuiShop.Data.Infrastructure
 {
     public interface IDbFactory : IDisposable
     {
-        TeduShopDbContext Init();
+        ThongThuiShopDbContext Init();
     }
 }

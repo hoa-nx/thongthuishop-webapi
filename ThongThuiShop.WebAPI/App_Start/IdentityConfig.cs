@@ -16,7 +16,7 @@ namespace ThongThuiShop.Web.App_Start
 {
     public class ApplicationUserStore : UserStore<AppUser>
     {
-        public ApplicationUserStore(TeduShopDbContext context)
+        public ApplicationUserStore(ThongThuiShopDbContext context)
             : base(context)
         {
         }
@@ -30,7 +30,7 @@ namespace ThongThuiShop.Web.App_Start
 
         public static ApplicationRoleManager Create(IdentityFactoryOptions<ApplicationRoleManager> options, IOwinContext context)
         {
-            return new ApplicationRoleManager(new RoleStore<AppRole>(context.Get<TeduShopDbContext>()));
+            return new ApplicationRoleManager(new RoleStore<AppRole>(context.Get<ThongThuiShopDbContext>()));
         }
     }
 
@@ -60,7 +60,7 @@ namespace ThongThuiShop.Web.App_Start
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
-            var manager = new ApplicationUserManager(new UserStore<AppUser>(context.Get<TeduShopDbContext>()));
+            var manager = new ApplicationUserManager(new UserStore<AppUser>(context.Get<ThongThuiShopDbContext>()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<AppUser>(manager)
             {

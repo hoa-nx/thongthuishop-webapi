@@ -20,7 +20,7 @@ namespace ThongThuiShop.Web.App_Start
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(TeduShopDbContext.Create);
+            app.CreatePerOwinContext(ThongThuiShopDbContext.Create);
 
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
@@ -44,7 +44,7 @@ namespace ThongThuiShop.Web.App_Start
 
         private static UserManager<AppUser> CreateManager(IdentityFactoryOptions<UserManager<AppUser>> options, IOwinContext context)
         {
-            var userStore = new UserStore<AppUser>(context.Get<TeduShopDbContext>());
+            var userStore = new UserStore<AppUser>(context.Get<ThongThuiShopDbContext>());
             var owinManager = new UserManager<AppUser>(userStore);
 
             return owinManager;

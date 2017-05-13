@@ -4,9 +4,9 @@ using ThongThuiShop.Model.Models;
 
 namespace ThongThuiShop.Data
 {
-    public class TeduShopDbContext : IdentityDbContext<AppUser>
+    public class ThongThuiShopDbContext : IdentityDbContext<AppUser>
     {
-        public TeduShopDbContext() : base("TeduShopConnection")
+        public ThongThuiShopDbContext() : base("ThongThuiShopConnection")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }
@@ -44,9 +44,9 @@ namespace ThongThuiShop.Data
         public DbSet<ProductSize> ProductSizes { set; get; }
         public DbSet<ProductImage> ProductImages { set; get; }
 
-        public static TeduShopDbContext Create()
+        public static ThongThuiShopDbContext Create()
         {
-            return new TeduShopDbContext();
+            return new ThongThuiShopDbContext();
         }
 
         protected override void OnModelCreating(DbModelBuilder builder)

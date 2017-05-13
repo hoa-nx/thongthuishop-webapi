@@ -38,7 +38,7 @@ namespace ThongThuiShop.Web.App_Start
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
             builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
 
-            builder.RegisterType<TeduShopDbContext>().AsSelf().InstancePerRequest();
+            builder.RegisterType<ThongThuiShopDbContext>().AsSelf().InstancePerRequest();
             builder.RegisterType<RoleStore<AppRole>>().As<IRoleStore<AppRole, string>>();
             //Asp.net Identity
             builder.RegisterType<ApplicationUserStore>().As<IUserStore<AppUser>>().InstancePerRequest();

@@ -11,14 +11,14 @@
     using System.Diagnostics;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ThongThuiShop.Data.TeduShopDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ThongThuiShop.Data.ThongThuiShopDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(ThongThuiShop.Data.TeduShopDbContext context)
+        protected override void Seed(ThongThuiShop.Data.ThongThuiShopDbContext context)
         {
             CreateProductCategorySample(context);
             CreateSlide(context);
@@ -33,7 +33,7 @@
             CreateFunction(context);
         }
 
-        private void CreateFunction(TeduShopDbContext context)
+        private void CreateFunction(ThongThuiShopDbContext context)
         {
             if (context.Functions.Count() == 0)
             {
@@ -74,14 +74,14 @@
             }
         }
 
-        private void CreateConfigTitle(TeduShopDbContext context)
+        private void CreateConfigTitle(ThongThuiShopDbContext context)
         {
             if (!context.SystemConfigs.Any(x => x.Code == "HomeTitle"))
             {
                 context.SystemConfigs.Add(new SystemConfig()
                 {
                     Code = "HomeTitle",
-                    ValueString = "Trang chủ TeduShop",
+                    ValueString = "Trang chủ Thong Thui Shop",
                 });
             }
             if (!context.SystemConfigs.Any(x => x.Code == "HomeMetaKeyword"))
@@ -89,7 +89,7 @@
                 context.SystemConfigs.Add(new SystemConfig()
                 {
                     Code = "HomeMetaKeyword",
-                    ValueString = "Trang chủ TeduShop",
+                    ValueString = "Trang chủ Thong Thui Shop",
                 });
             }
             if (!context.SystemConfigs.Any(x => x.Code == "HomeMetaDescription"))
@@ -97,32 +97,32 @@
                 context.SystemConfigs.Add(new SystemConfig()
                 {
                     Code = "HomeMetaDescription",
-                    ValueString = "Trang chủ TeduShop",
+                    ValueString = "Trang chủ Thong Thui Shop",
                 });
             }
         }
 
-        private void CreateUser(TeduShopDbContext context)
+        private void CreateUser(ThongThuiShopDbContext context)
         {
-            var manager = new UserManager<AppUser>(new UserStore<AppUser>(new TeduShopDbContext()));
+            var manager = new UserManager<AppUser>(new UserStore<AppUser>(new ThongThuiShopDbContext()));
             if (manager.Users.Count() == 0)
             {
-                var roleManager = new RoleManager<AppRole>(new RoleStore<AppRole>(new TeduShopDbContext()));
+                var roleManager = new RoleManager<AppRole>(new RoleStore<AppRole>(new ThongThuiShopDbContext()));
 
                 var user = new AppUser()
                 {
                     UserName = "admin",
-                    Email = "admin@tedu.com.vn",
+                    Email = "xuanhoa97@gmail.com",
                     EmailConfirmed = true,
                     BirthDay = DateTime.Now,
-                    FullName = "Bach Ngoc Toan",
+                    FullName = "Hoa Nguyen Xuan",
                     Avatar = "/assets/images/img.jpg",
                     Gender = true,
                     Status = true
                 };
                 if (manager.Users.Count(x => x.UserName == "admin") == 0)
                 {
-                    manager.Create(user, "123654$");
+                    manager.Create(user, "Abc12345");
 
                     if (!roleManager.Roles.Any())
                     {
@@ -137,7 +137,7 @@
             }
         }
 
-        private void CreateProductCategorySample(ThongThuiShop.Data.TeduShopDbContext context)
+        private void CreateProductCategorySample(ThongThuiShop.Data.ThongThuiShopDbContext context)
         {
             if (context.ProductCategories.Count() == 0)
             {
@@ -152,7 +152,7 @@
                 context.SaveChanges();
             }
         }
-        private void CreateSize(ThongThuiShop.Data.TeduShopDbContext context)
+        private void CreateSize(ThongThuiShop.Data.ThongThuiShopDbContext context)
         {
             if (context.Sizes.Count() == 0)
             {
@@ -170,7 +170,7 @@
             }
         }
 
-        private void CreateColor(ThongThuiShop.Data.TeduShopDbContext context)
+        private void CreateColor(ThongThuiShop.Data.ThongThuiShopDbContext context)
         {
             if (context.Colors.Count() == 0)
             {
@@ -185,7 +185,7 @@
                 context.SaveChanges();
             }
         }
-        private void CreateFooter(TeduShopDbContext context)
+        private void CreateFooter(ThongThuiShopDbContext context)
         {
             if (context.Footers.Count(x => x.ID == CommonConstants.DefaultFooterId) == 0)
             {
@@ -199,7 +199,7 @@
             }
         }
 
-        private void CreateSlide(TeduShopDbContext context)
+        private void CreateSlide(ThongThuiShopDbContext context)
         {
             if (context.Slides.Count() == 0)
             {
@@ -234,7 +234,7 @@
             }
         }
 
-        private void CreatePage(TeduShopDbContext context)
+        private void CreatePage(ThongThuiShopDbContext context)
         {
             if (context.Pages.Count() == 0)
             {
@@ -264,7 +264,7 @@
             }
         }
 
-        private void CreateContactDetail(TeduShopDbContext context)
+        private void CreateContactDetail(ThongThuiShopDbContext context)
         {
             if (context.ContactDetails.Count() == 0)
             {
@@ -272,13 +272,13 @@
                 {
                     var contactDetail = new ThongThuiShop.Model.Models.ContactDetail()
                     {
-                        Name = "Shop thời trang TEDU",
-                        Address = "Ngõ 77 Xuân La",
-                        Email = "tedu@gmail.com",
+                        Name = "Shop thời trang Thong Thui",
+                        Address = "Nhat Chi Mai",
+                        Email = "xuanhoa97@gmail.com",
                         Lat = 21.0633645,
                         Lng = 105.8053274,
                         Phone = "095423233",
-                        Website = "http://tedu.com.vn",
+                        Website = "http://paul.com.vn",
                         Other = "",
                         Status = true
                     };

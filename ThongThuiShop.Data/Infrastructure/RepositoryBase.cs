@@ -10,7 +10,7 @@ namespace ThongThuiShop.Data.Infrastructure
     {
         #region Properties
 
-        private TeduShopDbContext dataContext;
+        private ThongThuiShopDbContext dataContext;
         private readonly IDbSet<T> dbSet;
 
         protected IDbFactory DbFactory
@@ -19,7 +19,7 @@ namespace ThongThuiShop.Data.Infrastructure
             private set;
         }
 
-        protected TeduShopDbContext DbContext
+        protected ThongThuiShopDbContext DbContext
         {
             get { return dataContext ?? (dataContext = DbFactory.Init()); }
         }
